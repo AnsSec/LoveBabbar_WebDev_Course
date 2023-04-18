@@ -1,0 +1,112 @@
+:root{
+    --border: white;
+    --fontColor:white;
+    --wrapper-bg-color: #afe7fd;
+    --box-bg-color:#99e2ff;
+    --box-shadow:#99e2ff;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color:var(--wrapper-bg-color);
+    display: grid;
+    place-items: center;
+    position: relative;
+
+}
+
+.game-info{
+    color:black;
+    position: absolute;
+    top: 3rem;
+    left:50%;
+    transform: translateX(-50%);
+    background-color:var(--box-bg-color);
+    border-radius: 1rem;
+    border: 1px solid rgba(153,226,255,0.25);
+    box-shadow:0px 0px 100px 20px var(--box-shadow) ;
+    padding: 0.5rem 3rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.tic-tac-toe{
+
+    width: 90%;
+    max-width: 20rem;
+    background-color:var(--box-bg-color);
+    border-radius: 1rem;
+    border: 1px solid rgba(153,226,255,0.25);
+    box-shadow:0px 0px 100px 20px var(--box-shadow) ;
+    padding: 2rem;
+    display: grid;
+    margin-top: 10rem;
+    grid-template-columns: repeat(3,1fr);
+    aspect-ratio: 1/1;
+}
+
+.box{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin-top: rem;
+    cursor: pointer;
+    font-size: 3rem;
+    color: var(--fontColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box1, .box2, .box4, .box5{
+    border-right: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+}
+
+.box3,.box6{
+    border-bottom: 2px solid var(--border);
+}
+
+.box7,.box8{
+    border-right: 2px solid var(--border);
+}
+
+.btn{
+    /* position: absolute; */
+    bottom: 3rem;
+    left: -50%;
+    /* transform: translateX(-50%); */
+    background-color: var(--box-bg-color);
+    border-radius: 1rem;
+    border: 1px solid rgba(153,226,255,0.25);
+    box-shadow:0px 0px 100px 20px var(--box-shadow) ;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    font-weight: 500;
+    visibility: hidden;
+}
+
+.btn.active{
+    visibility: visible;
+}
+
+.win {
+    position: relative;
+  }
+  .win::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: red;
+    transform: translateY(-50%);
+  }

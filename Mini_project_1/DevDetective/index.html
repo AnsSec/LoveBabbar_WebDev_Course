@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Detective</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+
+        <!---------headding--------->
+        <header class="headding">
+            <h1 class="headName">GitDetective</h1>
+            <div>
+                <p class="para">Dark</p>
+                <button class="btn btn-icon">
+                    <img src="/assets/images/moon-icon.svg">
+                </button>
+            </div>
+        </header>
+        <!-- -------Main Section------  -->
+        <div class="main-section">
+            <form class="search-section">
+                <div class="search">
+                    <img src="/assets/images/search-icon.svg">
+                    <input class="btn input " type="search" name="user-input" id="input" placeholder="Enter a GitHub username..." required>
+                    <div class="error">
+                        <p id="no-results">no search results</p>
+                    </div >
+                </div>
+                <button class="btn btn-search" id="submit">Search</button>
+            </form>
+
+            <!-- ------User info------ -->
+        
+            <div class="userinfo-container">
+                <img id="profile" src="/assets/profile.jpeg" width="120px" height="120px">
+                <div class="info-section">
+                    <div>
+                        <div>
+                            <div class="profile-username">
+                                <div>
+                                    <h2>Pranay Gupta</h2>
+                                    <a href="https://github.com/thepranaygupta" id="user">@Pranay Gupta</a>
+                                </div>
+                                <div>
+                                    <p>Joined <span>05 May 2020</span></p>
+                                </div>
+                            </div>
+                            <p class="user-disc">
+                                Ex @permissionles, Ex @gumlet,
+                                Frontend Developer at @we-frame,
+                                Core Member at @aec-coding-club,
+                                Technical Expert at @gsasansol
+                            </p>
+                        </div>
+                    </div>
+                
+            
+            <!-- -----profile section----- -->
+                    <div class="profile-container"  >
+                        
+                        <div>
+                            <p class="profile-container-info" >Repos</p>
+                            <p class="profile-container-num">71</p>
+                        </div>
+                        
+                        <div>
+                            <p class="profile-container-info">Followers</p>
+                            <p class="profile-container-num">462</p>
+                        </div>
+    
+                        <div>
+                            <p class="profile-container-info">Following</p>
+                            <p class="profile-container-num">138</p>
+                        </div>
+                        
+                    </div>
+                <!-- -----socialmedia---- -->
+                    <div class="social-linkes">
+                        <div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img id="svg" src="/assets/images/location-icon.svg" alt=""></div>
+                                <p id="location">Kolkata, India</p>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img class="svg"  src="/assets/images/twitter-icon.svg" alt=""></div>
+                                <a href="https://twitter.com/thepranaygupta" id="twitter">thepranaygupta</a>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img id="svg" src="/assets/images/website-icon.svg" alt=""></div>
+                                <a href="https://thepranaygupta.github.io" id="page">https://thepranaygupta.github.io</a>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img id="svg" src="/assets/images/company-icon.svg" alt=""></div>
+                                <p id="company">@TargetTechnology</p>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
