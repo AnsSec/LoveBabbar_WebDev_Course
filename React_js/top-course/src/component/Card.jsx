@@ -9,7 +9,7 @@ const Card = ({course}) => {
             <img src={course.image.url}/>
             <div>
                 <button>
-                    <FcLike fontsize='1.75rem'/>
+                    <FcLike/>
                 </button>
             </div>
         </div>

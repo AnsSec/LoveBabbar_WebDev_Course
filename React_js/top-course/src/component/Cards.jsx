@@ -2,12 +2,11 @@ import React from 'react'
 import Card from './Card'
 
 const Cards = ({courses}) => {
-    let allCourses=[];
-
-
+    
     const getCourses=()=>{
-        Object.values(courses).forEach((courseCatogery)=>{
-            courseCatogery.forEach((course)=>{
+        let allCourses=[];
+        Object.values(courses).forEach(courseCatogery=>{
+            courseCatogery.forEach(course=>{
                 allCourses.push(course)
             })
         })
@@ -17,12 +16,12 @@ const Cards = ({courses}) => {
     return (
     <div>
         {
-            getCourses().map( (course)=>{
-                return <Card course={course}/>
-            })
+            getCourses().map( (course)=>(
+                <Card key={course.id} course={course}/>
+            ))
         }
     </div>
   )
 }
 
-export default Cards
+export default Cards;
