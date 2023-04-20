@@ -5,8 +5,8 @@ const Cards = ({courses}) => {
     
     const getCourses=()=>{
         let allCourses=[];
-        Object.values(courses).forEach(courseCatogery=>{
-            courseCatogery.forEach(course=>{
+        Object.values(courses).forEach(array=>{
+            array.forEach(course=>{
                 allCourses.push(course)
             })
         })

@@ -5,13 +5,13 @@ import Cards from "./component/Cards";
 import { filterData, apiUrl } from "./data";
 import { toast } from "react-toastify";
 import Spinner from "./component/Spinner";
-
+import "./index.css";
 
 const App = () => {
-  const [courses, setCourses] = useState(null);
-  const [loading,setLoading]=useState(true)
+  const [courses, setCourses] = useState('');
+  const [loading,setLoading] = useState(true);
 
-  const fetchdata = async () => {
+  async function fetchData() {
     setLoading(true)
     fetch(apiUrl)
       .then((data) => data.json())
@@ -27,10 +27,10 @@ const App = () => {
   
 
   useEffect(()=>{
-    fetchdata();
+    fetchData();
   },[])
   return (
-    <div>
+    <div >
       <div>
       <NavBar />
       </div>
