@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './Card'
 
 const Cards = ({courses}) => {
-    const [likedCourses,setLikedCourses]=useEffect([]);
+    const [likedCourses,setLikedCourses]=useState([]);
     const getCourses=()=>{
         let allCourses=[];
         Object.values(courses).forEach(array=>{
