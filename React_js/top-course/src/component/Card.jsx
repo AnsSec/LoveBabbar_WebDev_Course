@@ -21,7 +21,7 @@ const Card = ({course,likedCourses,setLikedCourses}) => {
     }
   }
     return (
-    <div className='w-[300px] bg-bgDark rounded-md overflow-hidden bg-opacity-80'>
+    <div className='w-[300px] bg-bgDark rounded-md overflow-hidden bg-opacity-80 hover:scale-[105%] '>
         <div className='relative'>
             <img src={course.image.url}/>
             <div className='w-[35px] h-[35px] bg-white rounded-full absolute right-3 -bottom-3 grid place-items-center'>

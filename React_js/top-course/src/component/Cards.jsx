@@ -13,7 +13,7 @@ const Cards = ({courses,category}) => {
         })
         return allCourses;
         }else{
-            
+            return courses[category]
         }
     }
 
