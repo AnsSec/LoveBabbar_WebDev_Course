@@ -3,9 +3,9 @@ import {FaQuoteLeft,FaQuoteRight,FaGem} from "react-icons/fa"
 const Cards = ({review}) => {
   return (
     <div>
-        <div>
+        {/* <div>
             <img src={review.image} alt="" />
-        </div>
+        </div> */}
         <div>
             <p>{review.name}</p>
         </div>
