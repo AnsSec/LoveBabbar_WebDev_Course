@@ -1,6 +1,6 @@
 import React from 'react'
 import {FaQuoteLeft,FaQuoteRight} from "react-icons/fa";
-import {FiChevronLeft,FiChevronRight} from "react-icons/fi"
+
 const Cards = ({review}) => {
   return (
     <div className='flex flex-col md:relative'>
@@ -30,20 +30,7 @@ const Cards = ({review}) => {
             <FaQuoteRight/>
         </div>
 
-        <div className='flex text-3xl text-violet-400 mt-5 gap-3 font-bold'>
-            <button className='hover:text-violet-500'>
-                <FiChevronLeft/>
-            </button>
-            <button className='hover:text-violet-500'>
-                <FiChevronRight/>
-            </button>
-        </div>
-
-        <div>
-            <button>
-                Surprise Me
-            </button>
-        </div>
+        
     </div>
   )
 }
