@@ -2,10 +2,10 @@ import React from 'react'
 import {FaQuoteLeft,FaQuoteRight,FaGem} from "react-icons/fa"
 const Cards = ({review}) => {
   return (
-    <div>
-        {/* <div>
-            <img src={review.image} alt="" />
-        </div> */}
+    <div className='flex flex-col md:relative'>
+        <div className='absolute -top-[7rem] z-[10] mx-auto' >
+            <img className='aspect-square rounded-full w-[140px] h-[140px] z-25' src={review.image} alt="" />
+        </div>
         <div>
             <p>{review.name}</p>
         </div>
