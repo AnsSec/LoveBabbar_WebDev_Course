@@ -20,7 +20,7 @@ function App() {
   //   setLastName(event.target.value);
   // }
 
-  const [formData, setFormData] = useState(  {firstName: "", lastName: "", email:"", comments:"",isVisible:true, mode:"" } );
+  const [formData, setFormData] = useState(  {firstName: "", lastName: "", email:"", comments:"",isVisible:true, mode:"",favCar:"" } );
 
   console.log(formData)
 
@@ -86,12 +86,28 @@ function App() {
 
         <br /><br />
 
-        <input type="radio" name="mode" value="Online-mode" onChange={changeHandler} id="Online-mode" checked={formData.mode==="Online-mode"} />
+        <fieldset>
+          <legend>Mode:</legend>
+          <input type="radio" name="mode" value="Online-mode" onChange={changeHandler} id="Online-mode" checked={formData.mode==="Online-mode"} />
         <label htmlFor="Online-mode">Online mode</label>
 
         <input type="radio" name="mode" value="Offline-mode" onChange={changeHandler} id="Offline-mode" 
         checked={formData.mode==="Offline-mode"}/>
-        <label htmlFor="Offline-mode">Offline mode</label>
+        <label htmlFor="Offline-mode">Offline mode</label> 
+        </fieldset>
+
+        <fieldset>
+          <select onChange={changeHandler} name="favCar" id="favCar" value={formData.favCar}>
+            <option value="Thar">Thar</option>
+            <option value="Scorpio">Scorpio</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercides">Mercides</option>
+            <option value="Volvo">Volvo</option>
+          </select>
+          <label htmlFor="favCar">Choose Your Fav Car</label>
+        </fieldset>
+
+        <button>Submit</button>
       </form>
     </div>
   );
