@@ -20,10 +20,9 @@ function App() {
   //   setLastName(event.target.value);
   // }
 
-  const [formData, setFormData] = useState(  {firstName: "", 
-  lastName: "", email:"" } );
+  const [formData, setFormData] = useState(  {firstName: "", lastName: "", email:"", comments:"" } );
 
-  // console.log(formData)
+  console.log(formData)
 
   function changeHandler(event) {
     const {name, value, checked, type} = event.target
@@ -62,6 +61,7 @@ function App() {
           placeholder='last name'
           onChange={changeHandler} 
           name="lastName" 
+          value={formData.lastName}
           
         />
 
@@ -72,9 +72,13 @@ function App() {
           placeholder="Enter your email here"
           onChange={changeHandler}
           name="email"
-            
+            value={formData.email}
           />
+        <br /><br />
 
+        <textarea name="comments" value={formData.comments} placeholder='enter your comments' onChange={changeHandler}
+        
+        />
       </form>
     </div>
   );
