@@ -20,7 +20,7 @@ function App() {
   //   setLastName(event.target.value);
   // }
 
-  const [formData, setFormData] = useState(  {firstName: "", lastName: "", email:"", comments:"" } );
+  const [formData, setFormData] = useState(  {firstName: "", lastName: "", email:"", comments:"",isVisible:true, mode:"" } );
 
   console.log(formData)
 
@@ -77,8 +77,21 @@ function App() {
         <br /><br />
 
         <textarea name="comments" value={formData.comments} placeholder='enter your comments' onChange={changeHandler}
-        
         />
+
+        <br /><br />
+
+        <input type="checkbox" onChange={changeHandler} name="isVisible" id='isVisible' checked={formData.isVisible} />
+        <label htmlFor="isVisible">Am i visible</label>
+
+        <br /><br />
+
+        <input type="radio" name="mode" value="Online-mode" onChange={changeHandler} id="Online-mode" checked={formData.mode==="Online-mode"} />
+        <label htmlFor="Online-mode">Online mode</label>
+
+        <input type="radio" name="mode" value="Offline-mode" onChange={changeHandler} id="Offline-mode" 
+        checked={formData.mode==="Offline-mode"}/>
+        <label htmlFor="Offline-mode">Offline mode</label>
       </form>
     </div>
   );
