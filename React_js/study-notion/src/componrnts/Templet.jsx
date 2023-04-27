@@ -15,7 +15,7 @@ const Templet = ({ title, desc1, desc2, image, formtype, setIsLoggedin }) => {
         </p>
 
         {
-            formtype==="signup"?(<SignupForm/>):(<LoginForm/>)
+            formtype==="signup"?(<SignupForm setIsLoggedin={setIsLoggedin}/>):(<LoginForm/>)
         }
         <div>
             <div></div>

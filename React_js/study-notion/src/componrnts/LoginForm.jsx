@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = ({setIsLoggedin}) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,8 +17,14 @@ const LoginForm = () => {
       [event.target.name]: event.target.value,
     }));
   };
+
+  const submitHandler=(event)=>{
+    event.preventDefault()
+    setIsLoggedin(true);
+    toast.success("login succesfully")
+  }
   return (
-    <form onSubmit={}>
+    <form onSubmit={submitHandler}>
       <label>
         <p>
           Email Address <sup>*</sup>
