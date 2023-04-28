@@ -13,7 +13,10 @@ const SignupForm = ({setIsLoggedin}) => {
     confirmpassword: "",
   });
 
+  const [accountType,setAccountType]=useState("student")
+
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const changeHandler = (event) => {
     setFormData((prevData) => ({
@@ -33,7 +36,12 @@ const SignupForm = ({setIsLoggedin}) => {
       const accountData={
         ...formData
       }
-      console.log(accountData);
+
+      const finalData={
+        ...accountData,accountType
+      }
+      
+      console.log(finalData)
       navigate("/dashboard")
     
     
@@ -43,9 +51,9 @@ const SignupForm = ({setIsLoggedin}) => {
   return (
     <div className="select-none">
 
-      <div className="bg-richblack-800 p-1 flex gap-z-1 rounded-full max-w-max">
-        <button >Student</button>
-        <button  >Instructor</button>
+      <div className="bg-richblack-800 p-1 flex gap-z-1 rounded-full max-w-max mt-4">
+        <button className={`${accountType==="student" ? "bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-100"} py-2 px-5 rounded-full transition-all duration-200`} onClick={()=>{setAccountType("student")}}>Student</button>
+        <button className={`${accountType==="instructor" ? "bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-100"} py-2 px-5 rounded-full transition-all duration-200`} onClick={()=>{setAccountType("instructor")}} >Instructor</button>
       </div>
 
       <form  onSubmit={submitHandler}>
@@ -125,15 +133,15 @@ const SignupForm = ({setIsLoggedin}) => {
             </p>
             <input
               required
-              type={showPassword ? "text" : "password"}
+              type={showConfirmPassword ? "text" : "password"}
               name="confirmpassword"
               onChange={changeHandler}
               placeholder="Confirm Password"
               value={formData.confirmpassword}
               className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] mb-1 mb-richblack-5"
             />
-            <span className="absolute right-3 top-9 cursor-pointer" onClick={() => setShowPassword((prev) => !prev)}>
-              {showPassword ? <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" /> : <AiOutlineEye fontSize={24} fill="#AFB2BF" />}
+            <span className="absolute right-3 top-9 cursor-pointer" onClick={() => setShowConfirmPassword((prev) => !prev)}>
+              {showConfirmPassword ? <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" /> : <AiOutlineEye fontSize={24} fill="#AFB2BF" />}
             </span>
           </label>
         </div>

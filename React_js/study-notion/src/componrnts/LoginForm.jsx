@@ -26,7 +26,12 @@ const LoginForm = ({setIsLoggedin}) => {
     setIsLoggedin(true);
     toast.success("Logged In")
     navigate("/dashboard")
+    const loginData={
+      ...formData
+    }
+    console.log(loginData)
   }
+
   return (
     <form onSubmit={submitHandler} 
     className="flex flex-col w-full gap-y-4 mt-6 select-none"
