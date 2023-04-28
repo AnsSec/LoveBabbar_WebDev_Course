@@ -12,10 +12,11 @@ function App() {
   return (
     <div>
     <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin}/>
+
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/signup" element={<Signup/>}/>
+      <Route path="/login" element={<Login setIsLoggedin={setIsLoggedin}/>}/>
+      <Route path="/signup" element={<Signup setIsLoggedin={setIsLoggedin}/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/login" element={<Login/>}/>
 

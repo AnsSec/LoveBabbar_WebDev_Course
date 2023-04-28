@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-const SignupForm = () => {
+const SignupForm = ({setIsLoggedin}) => {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -19,6 +22,24 @@ const SignupForm = () => {
     }));
   };
 
+  const submitHandler=(event)=>{
+    event.preventDefault()
+    if(formData.password !=formData.confirmpassword){
+      toast.error("Password do not match")
+      return;
+    }
+      setIsLoggedin(true)
+      toast.success("Account Created")
+      const accountData={
+        ...formData
+      }
+      console.log(accountData);
+      navigate("/dashboard")
+    
+    
+  }
+
+
   return (
     <div>
       <div>
@@ -26,7 +47,7 @@ const SignupForm = () => {
         <button>Instructor</button>
       </div>
 
-      <form>
+      <form onSubmit={submitHandler}>
         {/* first and last name */}
 
         <div>
@@ -37,7 +58,7 @@ const SignupForm = () => {
             <input
               required
               type="text"
-              name="firstname"
+              name="firstName"
               onChange={changeHandler}
               placeholder="Enter First Name"
               value={formData.firstName}
@@ -51,7 +72,7 @@ const SignupForm = () => {
             <input
               required
               type="text"
-              name="lastname"
+              name="lastName"
               onChange={changeHandler}
               placeholder="Enter Last Name"
               value={formData.lastName}
@@ -100,7 +121,7 @@ const SignupForm = () => {
             <input
               required
               type={showPassword ? "text" : "password"}
-              name="confirmPassword"
+              name="confirmpassword"
               onChange={changeHandler}
               placeholder="Confirm Password"
               value={formData.confirmpassword}
