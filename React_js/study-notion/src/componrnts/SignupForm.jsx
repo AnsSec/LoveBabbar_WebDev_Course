@@ -41,19 +41,20 @@ const SignupForm = ({setIsLoggedin}) => {
 
 
   return (
-    <div>
-      <div>
-        <button>Student</button>
-        <button>Instructor</button>
+    <div className="select-none">
+
+      <div className="bg-richblack-800 p-1 flex gap-z-1 rounded-full max-w-max">
+        <button >Student</button>
+        <button  >Instructor</button>
       </div>
 
-      <form onSubmit={submitHandler}>
+      <form  onSubmit={submitHandler}>
         {/* first and last name */}
 
-        <div>
-          <label>
-            <p>
-              First Name <sup>*</sup>
+        <div className="flex gap-x-4 mt-4">
+          <label className="w-full">
+            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.37rem]">
+              First Name <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -62,12 +63,13 @@ const SignupForm = ({setIsLoggedin}) => {
               onChange={changeHandler}
               placeholder="Enter First Name"
               value={formData.firstName}
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] mb-1 mb-richblack-5"
             />
           </label>
 
-          <label>
-            <p>
-              Last Name <sup>*</sup>
+          <label className="w-full">
+            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.37rem]">
+              Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -76,14 +78,15 @@ const SignupForm = ({setIsLoggedin}) => {
               onChange={changeHandler}
               placeholder="Enter Last Name"
               value={formData.lastName}
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] mb-1 mb-richblack-5"
             />
           </label>
         </div>
 
         {/* email address  */}
-        <label>
-          <p>
-            Email Address <sup>*</sup>
+        <label className="w-full">
+          <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.37rem] mt-4">
+            Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
             required
@@ -92,14 +95,15 @@ const SignupForm = ({setIsLoggedin}) => {
             onChange={changeHandler}
             placeholder="Enter Email Address"
             value={formData.email}
+            className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] mb-1 mb-richblack-5"
           />
         </label>
 
         {/* password  */}
-        <div>
-          <label>
-            <p>
-              Create Password<sup>*</sup>
+        <div className="flex gap-x-4 mt-4">
+          <label className="w-full relative">
+            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.37rem]">
+              Create Password<sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -108,15 +112,16 @@ const SignupForm = ({setIsLoggedin}) => {
               onChange={changeHandler}
               placeholder="Enter Password"
               value={formData.password}
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] mb-1 mb-richblack-5"
             />
-            <span onClick={() => setShowPassword((prev) => !prev)}>
-              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            <span className="absolute right-3 top-9 cursor-pointer" onClick={() => setShowPassword((prev) => !prev)}>
+              {showPassword ? <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" /> : <AiOutlineEye fontSize={24} fill="#AFB2BF" />}
             </span>
           </label>
 
-          <label>
-            <p>
-              Confirm Password<sup>*</sup>
+          <label className="w-full relative">
+            <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.37rem]">
+              Confirm Password<sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -125,14 +130,15 @@ const SignupForm = ({setIsLoggedin}) => {
               onChange={changeHandler}
               placeholder="Confirm Password"
               value={formData.confirmpassword}
+              className="bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px] mb-1 mb-richblack-5"
             />
-            <span onClick={() => setShowPassword((prev) => !prev)}>
-              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            <span className="absolute right-3 top-9 cursor-pointer" onClick={() => setShowPassword((prev) => !prev)}>
+              {showPassword ? <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" /> : <AiOutlineEye fontSize={24} fill="#AFB2BF" />}
             </span>
           </label>
         </div>
 
-        <button>
+        <button className="w-full bg-yellow-50 rounded-lg font-medium text-richblack-900 px-3 py-2 mt-6">
           Create Account
         </button>
       </form>

@@ -10,7 +10,7 @@ import { useState } from "react";
 function App() {
   const [isLoggedin,setIsLoggedin]=useState(false);
   return (
-    <div>
+    <div className="w-screen h-screen bg-richblack-900 flex flex-col">
     <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin}/>
 
     <Routes>
