@@ -21,7 +21,7 @@ const LoginForm = ({setIsLoggedin}) => {
   const submitHandler=(event)=>{
     event.preventDefault()
     setIsLoggedin(true);
-    toast.success("login succesfully")
+    toast.success("Logged In")
   }
   return (
     <form onSubmit={submitHandler}>
