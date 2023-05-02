@@ -12,3 +12,18 @@ body {
 body {
     font-family: 'Inter', sans-serif;
 }
+
+.progress {
+    width: 100.8px;
+    height: 16.8px;
+    border-radius: 16.8px;
+    background: repeating-linear-gradient(135deg,#0400ee 0 8.4px,rgba(4,0,238,0.75) 0 16.8px) left/0%   100% no-repeat,
+          repeating-linear-gradient(135deg,rgba(4,0,238,0.2) 0 8.4px,rgba(4,0,238,0.1) 0 16.8px) left/100% 100%;
+    animation: progress-p43u5e 2s infinite;
+ }
+ 
+ @keyframes progress-p43u5e {
+    100% {
+       background-size: 100% 100%;
+    }
+ }
