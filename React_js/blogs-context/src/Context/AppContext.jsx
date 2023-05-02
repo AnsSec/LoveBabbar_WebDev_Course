@@ -11,7 +11,7 @@ export default function AppContextProvider({children}){
     const [totalPages,setTotalPages]=useState(null);
 
     //data filling
-    const fetchBlogPost=async(page=1)=>{
+    async function fetchBlogPost(page = 1){
         let url=`${baseUrl}?page=${page}`
         setLoading(true);
         try{
