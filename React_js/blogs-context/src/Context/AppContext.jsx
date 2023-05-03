@@ -1,47 +1,61 @@
 import { createContext, useState } from "react";
 import { baseUrl } from "../baseUrl";
 
- 
-export const AppContext=createContext();
+//step1
+export const AppContext = createContext();
 
-export default function AppContextProvider({children}){
-    const [loading,setLoading]=useState(false);
-    const [posts,setPosts]=useState([]);
-    const [page,setpage]=useState(1);
-    const [totalPages,setTotalPages]=useState(null);
+export default function AppContextProvider({children}) {
+    const [loading, setLoading] = useState(false);
+    const [posts, setPosts] = useState([]);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(null);
 
-    //data filling
-    async function fetchBlogPost(page = 1){
-        let url=`${baseUrl}?page=${page}`
+    //data filling pending
+
+    async function fetchBlogPosts(page = 1) {
         setLoading(true);
+        let url = `${baseUrl}?page=${page}`;
+        console.log("printing the final URL");
+        console.log(url);
         try{
-            const result=await fetch(url);
-            const data=await result.json();
-            setpage(data.page);
+            const result = await fetch(url);
+            const data = await result.json();
+            console.log(data);
+            setPage(data.page);
             setPosts(data.posts);
-            setTotalPages(data.totalPages);
+            setTotalPages(data.totalPages)
         }
-        catch(error){
-            console.log("error in featching data");
-            setpage(1);
+        catch(error) {
+            console.log("Error in fetching data");
+            setPage(1);
             setPosts([]);
-            setTotalPages(null)
+            setTotalPages(null);
         }
-        setLoading(false)
+        setLoading(false);
     }
 
-    const handlePageChange=(page)=>{
-        setpage(page);
-        fetchBlogPost(page);
+    function handlePageChange(page) {
+        setPage(page);
+        fetchBlogPosts(page);
     }
-    const value={
-        loading,setLoading,
-        posts,setPosts,
-        page,setpage,
-        totalPages,setTotalPages
+
+
+
+    const value = {
+        posts,
+        setPosts,
+        loading,
+        setLoading,
+        page,
+        setPage,
+        totalPages,
+        setTotalPages,
+        fetchBlogPosts,
+        handlePageChange
     };
 
+    //step2
     return <AppContext.Provider value={value}>
         {children}
-    </AppContext.Provider>
-}   
+    </AppContext.Provider>;
+}

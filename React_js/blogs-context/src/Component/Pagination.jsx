@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../Context/AppContext'
 
 const Pagination = () => {
+  const {page}=useContext(AppContext);
+  
   return (
-    <div>Pagination</div>
+    <div>
+      { page>1 &&
+        <button>
+          Previous
+        </button>
+      }
+    </div>
   )
 }
 
