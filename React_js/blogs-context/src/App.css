@@ -14,16 +14,26 @@ body {
 }
 
 .progress {
-    width: 100.8px;
-    height: 16.8px;
-    border-radius: 16.8px;
-    background: repeating-linear-gradient(135deg,#0400ee 0 8.4px,rgba(4,0,238,0.75) 0 16.8px) left/0%   100% no-repeat,
-          repeating-linear-gradient(135deg,rgba(4,0,238,0.2) 0 8.4px,rgba(4,0,238,0.1) 0 16.8px) left/100% 100%;
-    animation: progress-p43u5e 2s infinite;
+    width: 134.4px;
+    height: 24.6px;
+    border-radius: 22.4px;
+    color: #ef4444;
+    border: 2.2px solid;
+    position: relative;
  }
  
- @keyframes progress-p43u5e {
+ .progress::before {
+    content: "";
+    position: absolute;
+    margin: 2.2px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: currentColor;
+    animation: progress-pf82op 2s infinite;
+ }
+ 
+ @keyframes progress-pf82op {
     100% {
-       background-size: 100% 100%;
+       inset: 0;
     }
  }
