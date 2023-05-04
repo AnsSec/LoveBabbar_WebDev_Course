@@ -1,10 +1,11 @@
 import { Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 import "../src/App.css"
-import Blog from "./Component/Blog";
-import Header from "./Component/Header";
-import Pagination from "./Component/Pagination";
 import { AppContext }  from "./Context/AppContext";
 import { useContext, useEffect } from "react";
+import Home from "./Pages/Home";
+import BlogPage from "./Pages/BlogPage";
+import TagPage from "./Pages/TagPage";
+import CategoryPage from "./Pages/CategoryPage";
 
 
 export default function App() {
@@ -16,8 +17,20 @@ export default function App() {
 
   useEffect(() => {
     const page=searchParameters.get('page')??1;
-    
-  },[]);
+
+    if(location.pathname.includes("tags")){
+      const tag=location.pathname.split("/").at(-1).replace("-"," ");
+      fetchBlogPosts(Number(page),tag)
+    }
+    else if(location.pathname.includes("categories")){
+      const categories=location.pathname.split("/").at(-1).replace("-"," ");
+      fetchBlogPosts(Number(page,null,categories))
+    }
+    else{
+      fetchBlogPosts(Number(page))
+    }
+
+  },[location.pathname,location.search]);
 
   return (
     <Routes>
@@ -27,11 +40,6 @@ export default function App() {
       <Route path="/categories/:category" element={<CategoryPage/>}/>
 
     </Routes>
-    // <div className="w-full h-full flex flex-col gap-y-1 justify-center items-center">
-    //   <Header/>
-    //   <Blog/>
-    //   <Pagination/>
-    // </div>
   ) ;
   
   
