@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useSearchParams } from "react-router-dom";
 import "../src/App.css"
 import Blog from "./Component/Blog";
 import Header from "./Component/Header";
@@ -10,8 +10,13 @@ import { useContext, useEffect } from "react";
 export default function App() {
   const {fetchBlogPosts} = useContext(AppContext);
 
+  const [searchParameters,setSearchParameters]=useSearchParams();
+
+  const location=useLocation();
+
   useEffect(() => {
-    fetchBlogPosts();
+    const page=searchParameters.get('page')??1;
+    
   },[]);
 
   return (
