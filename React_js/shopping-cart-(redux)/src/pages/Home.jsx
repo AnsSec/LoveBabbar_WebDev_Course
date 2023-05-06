@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import Spinner from '../components/Spinner'
+import Product from "../components/Product";
 
 const Home = () => {
   const API_URL = "https://fakestoreapi.com/products";
   const [loading,setLoading]=useState(false);
   const [post,setPost]=useState([]);
 
-  const fetchProductData=async=()=>{
+  const fetchProductData=async()=>{
     setLoading(true);
-    fetch(API_URL)
-    .then(res=>res.json())
-    .then(data=>{
+    try{
+      const res = await fetch(API_URL)
+      const data= await res.json();
+
       setPost(data)
-    })
-
-    .catch(error=>{
-      console.log("Error...")
-      setPost([]);
-    })
-
+    }
+    catch(error){
+      console.log("Error..")
+      setPost([])
+    }
     setLoading(false);
   }
 
