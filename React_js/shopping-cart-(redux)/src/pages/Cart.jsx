@@ -1,7 +1,12 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state);
+  const [totalAmount,setTotalAmount]=useState(0);
+  useEffect(()=>{
+    setTotalAmount();
+  },[cart])
 
   return (
     <div>
@@ -14,8 +19,19 @@ const Cart = () => {
               ))
             }
           </div>
+
           <div>
-            
+            <div>
+              <div>Your Cart</div>
+              <div>Summary</div>
+              <p>
+                <span>Total Items:{cart.length}</span>
+              </p>
+            </div>
+
+            <div>
+              <p>Total Amount:{totalAmount}</p>
+            </div>
           </div>
         </div>
       ) : (
