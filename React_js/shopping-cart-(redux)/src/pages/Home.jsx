@@ -34,8 +34,8 @@ const Home = () => {
         post.length>0?
         (<div>
           {
-            post.map((post)=>(
-              <Product key={post.id} post={post}/>
+            post.map((item)=>(
+              <Product key={item.id} item={item}/>
             ))
           }
         </div>):
