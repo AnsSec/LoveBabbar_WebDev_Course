@@ -25,3 +25,11 @@ app.post("/api/cars",(req,res)=>{ //data server ko bhejna
     console.log(brand);
     res.send("car send successfully.")
 })
+
+const mongoosedb=require('mongoose')
+mongoosedb.connect('mongodb://127.0.0.1:27017/cars',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(()=>{console.log("Connection Successfull")})
+.catch((error)=>{console.log("Connection Failed"+error)})
