@@ -7,7 +7,7 @@ const dbConnect=()=>{
         useNewUrlParser:true,
         useUnifiedTopology:true,
     })
-    .then(()=>console.log('connection successfull'))
+    .then(()=>console.log('db connection successfull'))
     .catch(()=>{console.log('connection error');
         process.exit(1);
     });

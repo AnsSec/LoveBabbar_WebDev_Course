@@ -13,7 +13,7 @@ const todoSchema=new mongoose.Schema(
             maxLength:50,
         },
         createdAt:{
-            type:String,
+            type:Date,
             require:true,
             default:Date.now(),
         },
