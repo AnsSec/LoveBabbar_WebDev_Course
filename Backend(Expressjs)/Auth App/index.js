@@ -1,0 +1,19 @@
+const express=require('mongoose')
+const app=express()
+
+require('dotenv').config()
+const PORT=process.env.PORT;
+
+//middleware
+app.use(express.json());
+
+require('./config/database').connect()
+
+//route import
+const user=require('./routes/user')
+app.use('/api/v1',user)
+
+//server start
+app.listen(PORT,()=>{
+    console.log(`Server start on ${PORT}`)
+})
