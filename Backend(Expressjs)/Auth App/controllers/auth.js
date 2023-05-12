@@ -64,7 +64,7 @@ exports.login=async(req,res)=>{
         }
 
         //check for registered user
-        const User=await user.findOne({email});
+        let User=await user.findOne({email});
 
         if(!User){
             return res.status(401).json({
@@ -78,14 +78,26 @@ exports.login=async(req,res)=>{
             id:User._id,
             role:User.role,
         };
+
         //verify password & generate a jwt token
         if(await bcrypt.compare(password,User.password)) {
             //password match
-            let token=jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:"2h"});
+            const token=jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:"2h"});
+            User=User.toObject();
             User.token=token;
             User.password=undefined;
+            const options={
+                expires:new Date(Date.now()+3*24*60*60*1000),
+                httpOnly:true,
 
-            res.cookie()
+            }
+
+            res.cookie("token",token,options).status(200).json({
+                success:true,
+                token,
+                User,
+                message:"userLogged in successfully",
+            })
         }
         else{
             //password don not match
@@ -95,6 +107,10 @@ exports.login=async(req,res)=>{
             });
         }
     } catch (error) {
-        
-    }
+        console.log(error);
+        return res.status(500).json({
+            success:false,
+            message:"login Failure",
+        });
+    };
 }
