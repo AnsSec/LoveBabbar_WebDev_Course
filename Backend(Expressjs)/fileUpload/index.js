@@ -11,7 +11,7 @@ const fileUpload=require('express-fileupload');
 app.use(fileUpload());
 
 //Database connection
-const db=require('./config/database');
+const db = require('./config/database');
 db.connect();
 
 //connection from cloud
@@ -20,7 +20,7 @@ cloudinary.cloudinaryConnect();
 
 //api routs mount
 const Upload=require('./routes/fileUpload');
-app.use('api/v1/upload');
+app.use('/api/v1/upload',Upload);
 
 //server start
 app.listen(PORT,()=>{
