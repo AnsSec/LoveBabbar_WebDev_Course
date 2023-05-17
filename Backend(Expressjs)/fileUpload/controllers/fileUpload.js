@@ -23,6 +23,14 @@ exports.localfileUpload=async(req,res)=>{
     }
 };
 
+const isFileTypeSupported=(type,supportedTypes)=>{
+    return supportedTypes.includes(type);
+};
+
+const uploadFileToCloudinary=async(file,folder)=>{
+
+}
+
 //image uploader handler
 exports.imageUploader=async(req,res)=>{
     try {
@@ -30,12 +38,20 @@ exports.imageUploader=async(req,res)=>{
         const {name,tags,email}=req.body;
         console.log(name,tags,email);
 
-        const files=req.files.imageFile;
-        console.log(files);
+        const file=req.files.imageFile;
+        console.log(file);
 
         //validation
         const supportedTypes=['jpg','jpeg','png']
-        
+        const fileType=file.name.split('.')[1].toLowerCase();
+
+        if(!isFileTypeSupported(fileType,supportedTypes)){
+            return res.status(400).json({
+                success:false,
+                message:'File format not supported'
+            });
+        };
+        //file format is supperted
 
     } catch (error) {
         
