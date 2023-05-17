@@ -1,7 +1,6 @@
 const File=require('../models/file');
 
 //localfile upload
-
 exports.localfileUpload=async(req,res)=>{
     try {
         //fetch file
@@ -21,5 +20,24 @@ exports.localfileUpload=async(req,res)=>{
 
     } catch (error) {
         console.log(`error found ${error}`);
+    }
+};
+
+//image uploader handler
+exports.imageUploader=async(req,res)=>{
+    try {
+        //data fetch
+        const {name,tags,email}=req.body;
+        console.log(name,tags,email);
+
+        const files=req.files.imageFile;
+        console.log(files);
+
+        //validation
+        const supportedTypes=['jpg','jpeg','png']
+        
+
+    } catch (error) {
+        
     }
 }
