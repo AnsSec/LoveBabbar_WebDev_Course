@@ -1,4 +1,5 @@
 const File=require('../models/file');
+const cloudinary=require('cloudinary').v2
 
 //localfile upload
 exports.localfileUpload=async(req,res)=>{
@@ -27,8 +28,9 @@ const isFileTypeSupported=(type,supportedTypes)=>{
     return supportedTypes.includes(type);
 };
 
-const uploadFileToCloudinary=async(file,folder)=>{
-
+const uploadFileToCloudinary=async(file, folder)=>{
+    const options={folder}
+    return await cloudinary.uploader.upload(file.tempFilePath,options);
 }
 
 //image uploader handler
@@ -52,6 +54,21 @@ exports.imageUploader=async(req,res)=>{
             });
         };
         //file format is supperted
+        const response=await uploadFileToCloudinary(file, 'Anshul');
+        console.log(response)
+        //entry on db
+        const fileData=await File.create({
+            name,
+            tags,
+            email,
+            imageUrl:response.secure_url
+        })
+
+        res.json({
+            success:true,
+            image:fileData.imageUrl,
+            message:'Image uploaded successfully'
+        })
 
     } catch (error) {
         
